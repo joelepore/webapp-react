@@ -1,7 +1,7 @@
-const MovieCard = ({ data }) => {
+const MovieCard = ({ data, onClick }) => {
   const { title, release_year, image } = data;
   return (
-    <div className="relative aspect-[2/3] flex flex-col justify-end items-center">
+    <div className="relative aspect-[2/3] flex flex-col justify-end items-center cursor-pointer hover:scale-110 transition" onClick={onClick}>
       <img
         src={image}
         alt={title}
