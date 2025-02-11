@@ -12,7 +12,7 @@ const MovieDetailPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      fetchMovie(id);
+      fetchMovie(id, () => navigate('/404'));
     }
 
     fetchData();
@@ -32,7 +32,7 @@ const MovieDetailPage = () => {
           <p>{movie.abstract}</p>
           <p>Genre: {movie.genre}</p>
           <p>Release year: {movie.release_year}</p>
-          <p className="flex items-center gap-2">Average Rating: <StarsRating vote={movie.average_vote} /></p>
+          <div className="flex items-center gap-2">Average Rating: <StarsRating vote={movie.average_vote} /></div>
           {movie.reviews?.length > 0 && <ReviewsList reviews={movie.reviews} />}
         </div>
       </div>

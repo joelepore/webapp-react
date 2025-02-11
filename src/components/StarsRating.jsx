@@ -10,9 +10,9 @@ const StarsRating = ({ vote }) => {
 
     for (let i = 1; i <= 5; i++) {
       if (i <= roundedVote) {
-        stars.push(<FaStar />);
+        stars.push(<FaStar key={i} />);
       } else {
-        stars.push(<FaRegStar />);
+        stars.push(<FaRegStar key={i} />);
       }
     }
 
