@@ -17,12 +17,13 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
-  const fetchMovie = async (id) => {
+  const fetchMovie = async (id, redirect) => {
     try {
       const { data } = await axios.get(`${apiUrl}/${id}`);
       setMovie(data);
     } catch (err) {
       console.error(err);
+      redirect();
     }
   }
   const value = {
