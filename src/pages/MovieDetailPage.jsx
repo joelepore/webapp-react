@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import ReviewsList from "../components/ReviewsList";
 import StarsRating from "../components/StarsRating";
 import { FaChevronLeft } from "react-icons/fa";
+import AddReviewForm from "../components/AddReviewForm";
 
 const MovieDetailPage = () => {
   const { fetchMovie, movie } = useContext(GlobalContext);
@@ -36,6 +37,7 @@ const MovieDetailPage = () => {
           {movie.reviews?.length > 0 && <ReviewsList reviews={movie.reviews} />}
         </div>
       </div>
+      <AddReviewForm />
     </>
   )
 }
