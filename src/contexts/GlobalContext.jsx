@@ -36,12 +36,22 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
+  const deleteMovie = async (id, redirect) => {
+    try {
+      await axios.delete(`${apiUrl}${id}`);
+      redirect();
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   const value = {
     fetchMovies,
     movies,
     fetchMovie,
     movie,
-    storeMovie
+    storeMovie,
+    deleteMovie
   };
 
   return (

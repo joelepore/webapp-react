@@ -3,11 +3,11 @@ import { GlobalContext } from '../contexts/GlobalContext';
 import { useNavigate, useParams } from "react-router-dom";
 import ReviewsList from "../components/ReviewsList";
 import StarsRating from "../components/StarsRating";
-import { FaChevronLeft } from "react-icons/fa";
+import { FaChevronLeft, FaTrash } from "react-icons/fa";
 import AddReviewForm from "../components/AddReviewForm";
 
 const MovieDetailPage = () => {
-  const { fetchMovie, movie } = useContext(GlobalContext);
+  const { fetchMovie, movie, deleteMovie } = useContext(GlobalContext);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -19,10 +19,15 @@ const MovieDetailPage = () => {
     fetchData();
   }, []);
 
+  const handleDelete = () => {
+    deleteMovie(id, () => navigate('/'));
+  }
+
   return (
     <>
-      <div>
+      <div className="flex justify-between items-center">
         <FaChevronLeft className="text-3xl mb-6 cursor-pointer" onClick={() => { navigate(-1) }} />
+        <button className="cursor-pointer bg-red-600 inline-block px-4 rounded-lg" onClick={handleDelete}>Elimina</button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2">
         <figure>
