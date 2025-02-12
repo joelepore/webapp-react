@@ -26,11 +26,22 @@ export const GlobalProvider = ({ children }) => {
       redirect();
     }
   }
+
+  const storeMovie = async (movieData, redirect) => {
+    try {
+      await axios.post(apiUrl, movieData, { headers: { 'Content-Type': 'multipart/form-data' } });
+      redirect();
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   const value = {
     fetchMovies,
     movies,
     fetchMovie,
-    movie
+    movie,
+    storeMovie
   };
 
   return (

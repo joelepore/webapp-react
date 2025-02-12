@@ -4,6 +4,7 @@ import DefaultLayout from "./layouts/DefaultLayout"
 import HomePage from "./pages/HomePage"
 import MovieDetailPage from "./pages/MovieDetailPage"
 import NotFoundPage from "./pages/NotFoundPage"
+import AddMoviePage from "./pages/AddMoviePage"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route Component={DefaultLayout}>
             <Route path="/" Component={HomePage} />
             <Route path="/movies/:id" Component={MovieDetailPage} />
+            <Route path="/movies/add" Component={AddMoviePage} />
             <Route path="*" Component={NotFoundPage} />
           </Route>
         </Routes>
